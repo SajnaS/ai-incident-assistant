@@ -1,0 +1,22 @@
+{
+  "incidentId": "INC-102",
+  "tldr": "Checkout service latency is 3x baseline (1200ms) following a v3.2.1 deploy 25m ago, coinciding with payment gateway timeouts and a 12% error rate.",
+  "signals": [
+    "checkout service latency_ms at 1200ms (3x baseline) for 20m",
+    "v3.2.1 deployed 25m ago by priyasharma",
+    "Logs show ERROR payment timeout to gateway and WARN retrying request",
+    "Log error_rate is 0.12"
+  ],
+  "hypotheses": [
+    "Regression in v3.2.1 deploy causing increased payment gateway timeouts or inefficient payment processing.",
+    "External payment gateway issue, potentially exacerbated by v3.2.1 changes.",
+    "Resource exhaustion on checkout service due to v3.2.1 changes."
+  ],
+  "next_actions": [
+    "Review v3.2.1 changes for checkout service, focusing on payment processing logic.",
+    "Check payment gateway status page and internal metrics for external service health.",
+    "Monitor checkout service resource utilization (CPU, memory) for saturation.",
+    "Prepare for potential v3.2.1 rollback if deploy is confirmed as root cause."
+  ],
+  "status_update": "INC-102 Sev2: Checkout latency elevated (1200ms) post-deploy v3.2.1, seeing payment gateway timeouts. Investigating deploy changes and external service health."
+}

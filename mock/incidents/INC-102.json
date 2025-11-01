@@ -1,0 +1,1 @@
+{ "id":"INC-102", "severity":"Sev2", "service":"checkout", "metric":"latency_ms", "value":1200, "threshold":400, "since":"20m" }
